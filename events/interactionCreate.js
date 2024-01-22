@@ -3,6 +3,7 @@ const ms = require("ms");
 const client = require("..");
 const config = require("../config.json");
 const log = require("../logger");
+const chalk = require("chalk");
 
 const cooldown = new Collection();
 
@@ -60,6 +61,15 @@ client.on("interactionCreate", async (interaction) => {
         }
       }
 
+      log.info(
+        `${chalk.cyan(interaction.user.tag)} used ${chalk.cyan(
+          "/" + slashCommand.name
+        )} | g: ${chalk.cyan(interaction.guild.name)} [${chalk.cyan(
+          interaction.guild.id
+        )}] | c: ${chalk.cyan(interaction.channel.name)} [${chalk.cyan(
+          interaction.channel.id
+        )}]`
+      );
       await slashCommand.run(client, interaction);
       cooldown.set(
         `slash-${slashCommand.name}${interaction.user.id}`,
@@ -97,6 +107,15 @@ client.on("interactionCreate", async (interaction) => {
           return interaction.reply({ embeds: [botPerms] });
         }
       }
+      log.info(
+        `${chalk.cyan(interaction.user.tag)} used ${chalk.cyan(
+          "/" + slashCommand.name
+        )} | g: ${chalk.cyan(interaction.guild.name)} [${chalk.cyan(
+          interaction.guild.id
+        )}] | c: ${chalk.cyan(interaction.channel.name)} [${chalk.cyan(
+          interaction.channel.id
+        )}]`
+      );
       await slashCommand.run(client, interaction);
     }
   } catch (error) {

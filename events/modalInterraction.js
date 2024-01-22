@@ -1,6 +1,7 @@
 const { EmbedBuilder, PermissionsBitField } = require("discord.js");
 const client = require("..");
 const log = require("../logger");
+const chalk = require("chalk");
 
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isModalSubmit()) return;
@@ -23,10 +24,19 @@ client.on("interactionCreate", async (interaction) => {
         return interaction.reply({ embeds: [perms], ephemeral: true });
       }
     }
+    log.info(
+      `${chalk.cyan(interaction.user.tag)} submitted ${chalk.cyan(
+        modal.id
+      )} | g: ${chalk.cyan(interaction.guild.name)} [${chalk.cyan(
+        interaction.guild.id
+      )}] | c: ${chalk.cyan(interaction.channel.name)} [${chalk.cyan(
+        interaction.channel.id
+      )}]`
+    );
     await modal.run(client, interaction);
   } catch (error) {
     log.error(
-      `Error while executing modal "${modal.name}" | ${error}`,
+      `Error while executing modal "${modal.id}" | ${error}`,
       "events/modalInteraction.js"
     );
   }

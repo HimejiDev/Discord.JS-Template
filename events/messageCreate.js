@@ -2,6 +2,8 @@ const { EmbedBuilder, Collection, PermissionsBitField } = require("discord.js");
 const ms = require("ms");
 const client = require("..");
 const config = require("../config.json");
+const log = require("../logger");
+const chalk = require("chalk");
 
 const prefix = client.prefix;
 const cooldown = new Collection();
@@ -57,6 +59,15 @@ client.on("messageCreate", async (message) => {
         }
       }
 
+      log.info(
+        `${chalk.cyan(message.author.tag)} used ${chalk.cyan(
+          client.prefix + cmd
+        )} | g: ${chalk.cyan(message.guild.name)} [${chalk.cyan(
+          message.guild.id
+        )}] | c: ${chalk.cyan(message.channel.name)} [${chalk.cyan(
+          message.channel.id
+        )}]`
+      );
       command.run(client, message, args);
       cooldown.set(
         `${command.name}${message.author.id}`,
@@ -95,6 +106,15 @@ client.on("messageCreate", async (message) => {
           return message.reply({ embeds: [botPerms] });
         }
       }
+      log.info(
+        `${chalk.cyan(message.author.user.tag)} used ${chalk.cyan(
+          client.prefix + cmd
+        )} | g: ${chalk.cyan(message.guild.name)} [${chalk.cyan(
+          message.guild.id
+        )}] | c: ${chalk.cyan(message.channel.name)} [${chalk.cyan(
+          message.channel.id
+        )}]`
+      );
       command.run(client, message, args);
     }
   }
