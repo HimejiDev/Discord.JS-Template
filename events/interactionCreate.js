@@ -2,6 +2,7 @@ const { EmbedBuilder, Collection, PermissionsBitField } = require("discord.js");
 const ms = require("ms");
 const client = require("..");
 const config = require("../config.json");
+const log = require("../logger");
 
 const cooldown = new Collection();
 
@@ -99,6 +100,9 @@ client.on("interactionCreate", async (interaction) => {
       await slashCommand.run(client, interaction);
     }
   } catch (error) {
-    console.log(error);
+    log.error(
+      `Error while executing slash command "${slashCommand.name}" | ${error}`,
+      "events/interactionCreate.js"
+    );
   }
 });

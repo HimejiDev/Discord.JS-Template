@@ -1,14 +1,9 @@
 const fs = require("fs");
-const chalk = require("chalk");
+const log = require("../logger");
 
 const { PermissionsBitField } = require("discord.js");
 const { Routes } = require("discord-api-types/v9");
 const { REST } = require("@discordjs/rest");
-
-const AsciiTable = require("ascii-table");
-const table = new AsciiTable()
-  .setHeading("Slash Commands", "Stats")
-  .setBorder("|", "=", "0", "0");
 
 const TOKEN = process.env.TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -42,13 +37,12 @@ module.exports = (client) => {
 
       if (slashCommand.name) {
         client.slashCommands.set(slashCommand.name, slashCommand);
-        table.addRow(file.split(".js")[0], "✅");
       } else {
-        table.addRow(file.split(".js")[0], "⛔");
+        log.warning(`Failed to load slash command "${file}"`);
       }
     }
   });
-  console.log(chalk.red(table.toString()));
+  log.success(`Slash Commands • Loaded`);
 
   (async () => {
     try {
@@ -58,9 +52,12 @@ module.exports = (client) => {
           : Routes.applicationCommands(CLIENT_ID),
         { body: slashCommands }
       );
-      console.log(chalk.yellow("Slash Commands • Registered"));
+      log.success("Slash Commands • Registered");
     } catch (error) {
-      console.log(error);
+      log.error(
+        `Error while registering slash commands | ${error}`,
+        "handlers/slashCommand.js"
+      );
     }
   })();
 };

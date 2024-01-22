@@ -1,8 +1,5 @@
 const fs = require("fs");
-const chalk = require("chalk");
-var AsciiTable = require("ascii-table");
-var table = new AsciiTable();
-table.setHeading("Buttons", "Stats").setBorder("|", "=", "0", "0");
+const log = require("../logger");
 
 module.exports = (client) => {
   fs.readdirSync("./buttons/")
@@ -10,7 +7,6 @@ module.exports = (client) => {
     .forEach((file) => {
       const button = require(`../buttons/${file}`);
       client.buttons.set(button.id, button);
-      table.addRow(button.id, "✅");
     });
-  console.log(chalk.cyanBright(table.toString()));
+  log.success("Buttons • Loaded");
 };

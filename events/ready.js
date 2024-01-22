@@ -1,6 +1,7 @@
 const { ActivityType } = require("discord.js");
 const client = require("..");
 const chalk = require("chalk");
+const log = require("../logger");
 
 client.on("ready", () => {
   const activities = [
@@ -29,5 +30,9 @@ client.on("ready", () => {
     client.user.setStatus(status[s]);
     s++;
   }, 30000);
-  console.log(chalk.red(`Logged in as ${client.user.tag}!`));
+  log.success(
+    `Logged in as ${chalk.cyan(client.user.tag)}. [${chalk.cyan(
+      client.user.id
+    )}]`
+  );
 });

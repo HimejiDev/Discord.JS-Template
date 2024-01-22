@@ -1,5 +1,6 @@
 const { EmbedBuilder, PermissionsBitField } = require("discord.js");
 const client = require("..");
+const log = require("../logger");
 
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isButton()) return;
@@ -24,6 +25,9 @@ client.on("interactionCreate", async (interaction) => {
     }
     await button.run(client, interaction);
   } catch (error) {
-    console.log(error);
+    log.error(
+      `Error while executing button "${button.name}" | ${error}`,
+      "events/buttonInteraction.js"
+    );
   }
 });

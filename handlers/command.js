@@ -1,15 +1,12 @@
-const chalk = require("chalk");
 const fs = require("fs");
-var AsciiTable = require("ascii-table");
-var table = new AsciiTable();
-table.setHeading("Commands", "Stats").setBorder("|", "=", "0", "0");
+const log = require("../logger");
 
 module.exports = (client) => {
   fs.readdirSync("./commands/").forEach((dir) => {
     const files = fs
       .readdirSync(`./commands/${dir}/`)
       .filter((file) => file.endsWith(".js"));
-    if (!files || files.length <= 0) console.log(chalk.red("Commands - 0"));
+    if (!files || files.length <= 0) log.warning("0 Commands found");
     files.forEach((file) => {
       let command = require(`../commands/${dir}/${file}`);
       if (command) {
@@ -19,11 +16,10 @@ module.exports = (client) => {
             client.aliases.set(alias, command.name);
           });
         }
-        table.addRow(command.name, "✅");
       } else {
-        table.addRow(file, "⛔");
+        log.warning(`Failed to load command "${file}"`);
       }
     });
   });
-  console.log(chalk.blue(table.toString()));
+  log.success("Commands • Loaded");
 };
