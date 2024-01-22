@@ -31,6 +31,7 @@ client.aliases = new Collection();
 client.slashCommands = new Collection();
 client.buttons = new Collection();
 client.modals = new Collection();
+client.selectMenus = new Collection();
 client.prefix = config.prefix;
 
 module.exports = client;
