@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://nodejs.org/">
-    <img src="https://img.shields.io/badge/node-16.9.x-brightgreen?style=for-the-badge" alt="node.js">
+    <img src="https://img.shields.io/badge/node-v20.5.x-brightgreen?style=for-the-badge" alt="node.js">
   </a>
   <a href="https://discord.js.org/">
     <img src="https://img.shields.io/badge/discord.js-v14-blue?style=for-the-badge" alt="discord.js">
