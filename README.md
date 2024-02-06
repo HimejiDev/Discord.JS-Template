@@ -15,7 +15,7 @@
   <a href="https://discord.js.org/">
     <img src="https://img.shields.io/badge/discord.js-v14-blue?style=for-the-badge" alt="discord.js">
   </a>
-  <a href="https://badge.fury.io/js/electron-markdownify">
+  <a href="https://discord.gg/49rUCrxda9">
     <img src="https://img.shields.io/badge/💬-discord-red?style=for-the-badge"
     alt="Discord">
   </a>
