@@ -28,7 +28,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](assets\console.png)
+![screenshot](assets/console.png)
 
 ## Key Features
 
