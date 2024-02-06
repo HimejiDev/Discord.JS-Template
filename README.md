@@ -1,92 +1,101 @@
 <h1 align="center">
-   Discord.js v14 Command-Handlers
+  <br>
+  <a href="https://github.com/HimejiDev/Discord.JS-Template"><img src="assets\logo.png" alt="Discord.JS Template" height="200"></a>
+  <br>
+  Discord.JS Template
+  <br>
 </h1>
-<h4 align="center">Commands, Events, Permissions and Cooldown Handlers for Discord.js v14 bot ~ Made by Nathaniel</h4>
+
+<h4 align="center">A simple, yet effective Discord Bot template using <a href="https://discord.js.org/" target="_blank">Discord.JS</a>.</h4>
 
 <p align="center">
-<a href="https://nodejs.org/en/download/">
-   <img src="https://img.shields.io/badge/node-16.9.x-brightgreen?style=for-the-badge" alt="node.js">
-</a>
-
-<a href="https://github.com/discordjs/discord.js/">
-   <img src="https://img.shields.io/badge/discord.js-v14-blue?style=for-the-badge" alt="discord.js">
-</a>
-
-<a href="https://github.com/Nathaniel-VFX/Discord.js-v14-Command-Handlers">
-   <img src="https://img.shields.io/badge/version-latest-red?style=for-the-badge" alt="node.js">
-</a>
-
+  <a href="https://nodejs.org/">
+    <img src="https://img.shields.io/badge/node-16.9.x-brightgreen?style=for-the-badge" alt="node.js">
+  </a>
+  <a href="https://discord.js.org/">
+    <img src="https://img.shields.io/badge/discord.js-v14-blue?style=for-the-badge" alt="discord.js">
+  </a>
+  <a href="https://badge.fury.io/js/electron-markdownify">
+    <img src="https://img.shields.io/badge/💬-discord-red?style=for-the-badge"
+    alt="Discord">
+  </a>
 </p>
-
 
 <p align="center">
-   
-<a href="https://github.com/Nathaniel-VFX/Discord.js-v14-Command-Handlers/fork">
-   <img src="https://img.shields.io/badge/Fork-github-blueviolet?logo=githubactions&logoColor=white&style=for-the-badge" alt="github-fork">
-</a>
-   
-<a href="https://replit.com/@LeeNathaniel/Discordjs-v14-bot">
-   <img src="https://img.shields.io/badge/Fork-Replit-white?logo=githubactions&logoColor=white&style=for-the-badge" alt="replit-fork">
-</a>
-   
-</p>
- 
- 
-<p align="center">
-
-<a href="https://github.com/Nathaniel-VFX/Discord.js-v14-Command-Handlers">
-   <img src="https://img.shields.io/github/forks/Nathaniel-VFX/Discord.js-v14-Command-Handlers?logo=githubactions&logoColor=success&style=social" alt="github-fork">
-</a>
-
-<a href="https://github.com/Nathaniel-VFX/Discord.js-v14-Command-Handlers">
-   <img src="https://img.shields.io/github/stars/Nathaniel-VFX/Discord.js-v14-Command-Handlers?label=Stars&logo=ReverbNation&&logoColor=yellow&style=social" alt="github-repo-stars">
-</a>
-
-<a href="https://github.com/Nathaniel-VFX">
-   <img src="https://img.shields.io/github/followers/Nathaniel-VFX?label=Follow&logo=github&style=social" alt="github-follow">
-</a>
-  
+  <a href="#key-features">Key Features</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#credits">Credits</a> •
+  <a href="#license">License</a>
 </p>
 
-<br>
+![screenshot](assets\console.png)
 
+## Key Features
 
-# Features
-- Commands Handler (aliases, permissions)
-- Slash Commands Handler (options, choices, autocomplete, permissions)
-- Events Handler (messageCreate, interactionCreate, ready)
-- Button Handler (custom ID, permissions)
-- Permission Handler (commands, slash commands)
+- Commands Handler
+  - aliases, permissions
+- Slash Commands Handler
+  - options, choices, autocomplete, permissions
+- Events Handler
+  - ready, messageCreate, interactionCreate, guildCreate, guildDelete
+- Button, Modal and Select Menu Handler
+  - custom ID, permissions
+- Permission Handler
+  - commands, slash commands
 - Cooldowns (No Database)
+- Detailed Logging
 
-## Preview
-<img src="https://i.imgur.com/8K2MgWQ.png"/>
+## How To Use
 
-## Installation & Setup
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/HimejiDev/Discord.JS-Template
+
+# Go into the repository
+$ cd Discord.JS-Template
+
+# Install dependencies
+$ npm install
 ```
-npm install discord.js@latest @discordjs/rest ascii-table discord-api-types ms dotenv chalk@2.4.1
+
+Before running the app, you need to create a `.env` file in the root directory and fill it with the following:
+
+```env
+TOKEN=
+CLIENT_ID=
+GUILD_ID=
 ```
-Leave the `GUILD_ID` in `.env` file blank if you want to register slash commands globally.
 
-<br />
+Leave the `GUILD_ID` blank if you want to register slash commands globally.
 
-Add new secret: `TOKEN`, `CLIENT_ID` and `GUILD_ID` into the environment variables tab (lock icon in sidebar) if you are using [replit](https://replit.com/).
+Once you've done that, you can run the app with the following command:
 
-If you are using [replit](https://replit.com/) you can remove `require('dotenv').config()` from `index.js` and you don't need to install `dotenv`
+```bash
+$ npm start
+```
+
+## Credits
+
+This repository is forked from [Nathaniel-VFX/Discord.js-v14-Command-Handlers](https://github.com/Nathaniel-VFX/Discord.js-v14-Command-Handlers)
+
+This software uses the following open source packages:
+
+- [Node.js](https://nodejs.org/)
+- [Discord.JS](https://discord.js.org/)
+- [Chalk](https://www.npmjs.com/package/chalk)
+
+## You may also like...
+
+- [Revolt.JS Template](https://github.com/HimejiDev/Revolt.JS-Template) - A simple, yet effective Revolt.JS Bot template.
+
+## License
+
+[MIT](LICENSE)
 
 ---
-## Made by Nathaniel (Nathaniel VFX#8080)
-These command handlers are made by Nathaniel (Nathaniel VFX#8080)
 
-**⭐ Remember to star the repository if you like it! ⭐**
-
-_**Please give me proper credit when you use it, especially if you want to edit and post to public.**_
-
----
-
-## Contact
-Discord: `Nathaniel VFX#8080`
-
-If you have any problem, feel free to contact me. 😉
-
-<img src="https://discord.c99.nl/widget/theme-2/753180650202202154.png" alt="Discord"/>
+> [himeji.dev](https://www.himeji.dev/) &nbsp;&middot;&nbsp;
+> GitHub [@HimejiDev](https://github.com/HimejiDev) &nbsp;&middot;&nbsp;
+> Twitter [@H1meji](https://twitter.com/H1m3ji)
